@@ -1,12 +1,3 @@
-function buttonClick() {
- 
-  let msg = Browser.msgBox('確認メッセージ','実行します。よろしいですか？実行しない場合、画面上部に現れるキャンセルを押下するか、ページをリロードして下さい。',Browser.Buttons.OK);
-  if (msg == 'ok') {
-    Browser.msgBox('OKが押されました。処理を実行します。');
-  }
-}
-
-
 //このgsファイルで一番最初に呼び出されるfunction
 function getDataMain(){
   buttonClick();
@@ -21,6 +12,14 @@ function getDataMain(){
   putData(cellPosition, arr);
   console.log("-----putDataから処理が戻ってきました-----")
   console.log("-----getDataMainの処理が正常終了しました-----");
+}
+
+//処理実行前の確認画面出力。誤実行防止の為。
+function buttonClick() {
+  let msg = Browser.msgBox('確認メッセージ','実行します。よろしいですか？実行しない場合、画面上部に現れるキャンセルを押下するか、ページをリロードして下さい。',Browser.Buttons.OK);
+  if (msg == 'ok') {
+    Browser.msgBox('OKが押されました。処理を実行します。');
+  }
 }
 
 //リーダ業務時間計算シートから指定の数値を取得するfunction
